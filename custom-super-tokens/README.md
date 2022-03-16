@@ -4,18 +4,6 @@ Implementations for extended super token functionality.
 
 ---
 
-## Setup
-
-To set up the repo for development, clone this repo and install dependencies.
-
-```bash
-git clone https://github.com/Fluid-X/CustomSuperTokens.git \
-    && cd CustomSuperTokens \
-    && yarn
-```
-
----
-
 ## NOTICE
 
 These contracts, while being tested internally, HAVE NOT been audited or
