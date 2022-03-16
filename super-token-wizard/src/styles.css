@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #202020;
+	color: #f0f0f0;
+	font-family: Helvetica, sans-serif;
+}
+
+.app {
+	min-height: calc(100vh - 64px);
+	padding: 32px;
+	box-sizing: border-box;
+	overflow-x: scroll;
+}
+
+.wrapper {
+	display: flex;
+	min-width: 1320px;
+	min-height: 80vh;
+	background: #282828;
+	border-radius: 8px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}

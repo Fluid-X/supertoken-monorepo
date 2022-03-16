@@ -14,6 +14,8 @@
 		"pretty-quick": "^3.1.3"
 	},
 	"scripts": {
+		"start": "cd super-token-wizard && yarn start",
+		"test": "cd custom-super-tokens && yarn test",
 		"prepare": "husky install"
 	}
 }

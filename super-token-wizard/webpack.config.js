@@ -1,24 +1,60 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin") // Require  html-webpack-plugin plugin
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const webpack = require("webpack")
 
 module.exports = {
-	entry: __dirname + "/index.js", // webpack entry point. Module to start building dependency graph
+	entry: path.resolve(__dirname, "src/index.tsx"),
 	output: {
-		path: __dirname + "/dist", // Folder to store generated bundle
-		filename: "bundle.js", // Name of generated bundle after build
-		publicPath: "/" // public URL of the output directory when referenced in a browser
+		path: path.resolve(__dirname, "dist"),
+		filename: "bundle.js"
 	},
+	mode: "development",
 	module: {
-		// where we defined file patterns and their loaders
-		rules: []
+		rules: [
+			{
+				test: /\.[jt]sx?$/,
+				loader: "babel-loader",
+				exclude: /node_modules/
+			},
+			{
+				test: /\.css/,
+				use: ["style-loader", "css-loader"]
+			},
+			{
+				test: /\.scss$/,
+				use: ["style-loader", "css-loader", "sass-loader"]
+			},
+			{
+				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+				type: "asset/resource"
+			},
+			{
+				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+				type: "asset/inline"
+			}
+		]
+	},
+	resolve: {
+		extensions: [".tsx", ".ts", ".js", ".jsx"]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: __dirname + "/index.html",
-			inject: "body"
-		})
+			template: path.resolve(__dirname, "./public/index.html")
+		}),
+		new NodePolyfillPlugin(),
+		new webpack.ProvidePlugin({
+			Buffer: ["buffer", "Buffer"],
+			process: "process/browser"
+		}),
+		new CleanWebpackPlugin()
 	],
 	devServer: {
-		contentBase: "./",
-		port: 7700
+		static: path.join(__dirname, "./src"),
+		port: 3000,
+		hot: true,
+		compress: true,
+		open: true
 	}
 }

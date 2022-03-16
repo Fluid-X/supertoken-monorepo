@@ -1,0 +1,51 @@
+.codeWrapper {
+	padding: 16px;
+	flex: 1;
+}
+
+.code {
+	font-size: 1.1em;
+	font-family: monospace;
+	line-height: 1.6em;
+	background: #303030;
+	padding: 16px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	box-shadow: 2px 2px 4px #000;
+}
+
+.buttonBar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.button {
+	padding: 8px;
+	margin: 8px;
+	background: #303030;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 2px 2px 4px #000;
+	color: #f0f0f0;
+	font-size: 1em;
+	transition: background 0.1s;
+}
+
+.linkButton {
+	padding: 8px;
+	margin: 8px;
+	background: #303030;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 2px 2px 4px #000;
+	color: #f0f0f0;
+	text-decoration: none;
+	font-size: 1em;
+	transition: background 0.1s;
+}
+
+.button:active,
+.linkButton:active {
+	background: #cc99cd;
+}
